@@ -66,7 +66,7 @@ class OverlapValidator < ActiveModel::EachValidator
     if record.new_record?
       self.sql_conditions = main_condition
     else
-      self.sql_conditions = "#{main_condition} AND #{record_table_name(record)}.id != #{record.id}"
+      self.sql_conditions = "#{main_condition} AND #{record_table_name(record)}.id != '#{record.id}'"
     end
   end
 
